@@ -1,18 +1,15 @@
+package mavenBuilder;
+
 import java.io.File;
+import java.io.InputStream;
 import java.util.Arrays;
 import java.util.List;
 
-import org.apache.maven.shared.invoker.DefaultInvocationRequest;
-import org.apache.maven.shared.invoker.DefaultInvoker;
-import org.apache.maven.shared.invoker.InvocationOutputHandler;
-import org.apache.maven.shared.invoker.InvocationRequest;
-import org.apache.maven.shared.invoker.InvocationResult;
-import org.apache.maven.shared.invoker.Invoker;
-import org.apache.maven.shared.invoker.MavenInvocationException;
+import org.apache.maven.shared.invoker.*;
 
 public class MavenInvokerBuilder {
-    private static final List<String> PUBLISH_GOALS = Arrays.asList("test", "install");
-    private StringBuilder output = new StringBuilder();
+    private static final List<String> PUBLISH_GOALS = Arrays.asList("clean","package","-DskipTests");
+    private final StringBuilder output = new StringBuilder();
     ;
     /**
      * Define a field for the calling program instance.
@@ -25,6 +22,15 @@ public class MavenInvokerBuilder {
     public MavenInvokerBuilder(File localRepositoryDir) {
         this.invoker = new DefaultInvoker();
         this.invoker.setLocalRepositoryDirectory(localRepositoryDir);
+        String mavenHomePath = System.getenv("MAVEN_HOME");
+
+        if (mavenHomePath != null) {
+            File mavenHome = new File(mavenHomePath);
+            this.invoker.setMavenHome(mavenHome);
+        } else {
+            // Handle the case where "MAVEN_HOME" is not set
+            System.err.println("Error: MAVEN_HOME environment variable is not set.");
+        }
     }
 
     /**
@@ -32,8 +38,9 @@ public class MavenInvokerBuilder {
      */
     public void build() throws MavenInvocationException {
         InvocationRequest request = new DefaultInvocationRequest();
-        request.setInteractive(false);
+        request.setRecursive(false);
         request.setGoals(PUBLISH_GOALS);
+        request.setInputStream(InputStream.nullInputStream());
         setOutput(request);
         InvocationResult result = this.invoker.execute(request);
         if (result.getExitCode() != 0) {
@@ -51,20 +58,6 @@ public class MavenInvokerBuilder {
      */
     private void setOutput(InvocationRequest request) {
         request.setOutputHandler(new InvocationOutputHandler() {
-            @Override
-            public void consumeLine(String line) {
-                output.append(line).append(System.lineSeparator());
-            }
-        });
-    }
-
-    /**
-     * Set the output handler by calling the program.
-     *
-     * @param invoker Invoker
-     */
-    private void setOutput(Invoker invoker) {
-        invoker.setOutputHandler(new InvocationOutputHandler() {
             @Override
             public void consumeLine(String line) {
                 output.append(line).append(System.lineSeparator());
