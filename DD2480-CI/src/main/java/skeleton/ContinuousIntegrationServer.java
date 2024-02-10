@@ -2,14 +2,11 @@ package skeleton;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.ServletException;
-
 import java.io.IOException;
-
 import org.eclipse.jetty.server.Server;
 import org.eclipse.jetty.server.Request;
 import org.eclipse.jetty.server.handler.AbstractHandler;
-import skeleton.BuildStatus;
-import skeleton.GitStatusUpdate;
+
 /**
  Skeleton of a ContinuousIntegrationServer which acts as webhook
  See the Jetty documentation for API documentation of those classes.
@@ -32,6 +29,8 @@ public class ContinuousIntegrationServer extends AbstractHandler
         // for example
         // 1st clone your repository
         // 2nd compile the code
+        GitStatusUpdate g = new GitStatusUpdate("5d3b4dc5b80c09cb27f13e1b6a846188dddc9cf0", BuildStatus.SUCCESS);
+        g.updateStatus(response);
 
         response.getWriter().println("CI job done");
     }

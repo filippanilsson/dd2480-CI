@@ -1,14 +1,16 @@
 package skeleton;
 
-import org.apache.http.client.methods.CloseableHttpResponse;
+import org.apache.http.HttpResponse;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.entity.StringEntity;
 import org.apache.http.impl.client.CloseableHttpClient;
-import org.apache.http.impl.client.HttpClientBuilder;
-import java.net.http.HttpResponse;
-
-import org.json.JSONException;
+import org.apache.http.client.HttpClient;
+import org.apache.http.impl.client.HttpClients;
 import org.json.JSONObject;
+
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
+
 
 /**
  * Updates the commit status on the repository to one of four keywords - success, failure, error, and pending
@@ -24,22 +26,24 @@ public class GitStatusUpdate {
 
     /**
      * Constructor for the GitStatusUpdate class
-     * @param sha The SHA id for the commit
+     *
+     * @param sha         The SHA id for the commit
      * @param buildStatus The status of the finished build
-     * */
-    public GitStatusUpdate( String sha, BuildStatus buildStatus) {
+     */
+    public GitStatusUpdate(String sha, BuildStatus buildStatus) {
         this.sha = sha;
         this.buildStatus = buildStatus;
         this.gitUri = "https://api.github.com/";
-        this.githubToken = System.getenv("GITHUB_TOKEN");
+        this.githubToken = "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";
     }
 
     /**
      * Sets the status of the commit by changing values of the description, status and context.
+     *
      * @param json The JSON object that contains the values to be sent to the GitHub API
-     * */
-    private void statusSetter(JSONObject json) {
-        switch (buildStatus){
+     */
+    private JSONObject statusSetter(JSONObject json) {
+        switch (buildStatus) {
             case SUCCESS:
                 json.put("description", "Build success");
             case FAILURE:
@@ -49,34 +53,40 @@ public class GitStatusUpdate {
             default:
                 json.put("description", "Build error");
         }
-        json.put("status", buildStatus.toString());
+        json.put("state", buildStatus.toString());
         json.put("context", "Group 12");
-    }
 
-    // Added setter method for CloseableHttpClient
-    public void setHttpClient(CloseableHttpClient httpClient) {
-        this.httpClient = httpClient;
+        return json;
     }
 
     /**
      * Creates a HTTP POST request to update the commit status.
      * Throws an exception if the POST request fails.
      */
-    public void updateStatus(){
-        JSONObject json = new JSONObject();
-        statusSetter(json);
+    public void updateStatus(HttpServletResponse servletResponse) throws IOException {
+        JSONObject json = statusSetter(new JSONObject());
 
-        try (CloseableHttpClient httpClient = HttpClientBuilder.create().build()) {
-            HttpPost httpPost = new HttpPost(gitUri + "repos/filippanilsson/dd2480-CI/statuses/" + sha);
-            StringEntity params = new StringEntity(json.toString());
-            httpPost.addHeader("accept", " application/vnd.github+json");
-            httpPost.addHeader("Authorization", "token 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");
-            httpPost.setEntity(params);
-            httpClient.execute(httpPost);
+        HttpClient httpClient = HttpClients.createDefault();
+        String apiUrl = gitUri + "repos/filippanilsson/dd2480-CI/statuses/" + sha;
+
+        HttpPost httpPost = new HttpPost(apiUrl);
+
+        httpPost.setHeader("Authorization", "Bearer " + githubToken);
+        httpPost.setHeader("Content-Type", "application/json");
+
+        HttpResponse response;
+        try {
+            StringEntity entity = new StringEntity(json.toString());
+            httpPost.setEntity(entity);
+            response = httpClient.execute(httpPost);
+            System.out.println("Response status code: " + response.getStatusLine().getStatusCode());
         } catch (Exception e) {
-            throw new JSONException("Error", e);
+            e.printStackTrace();
         }
+
+        servletResponse.getWriter().println("Status updated");
     }
+
 }
 
 

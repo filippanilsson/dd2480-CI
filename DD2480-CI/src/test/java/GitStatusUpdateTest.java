@@ -40,7 +40,6 @@ class GitStatusUpdateTest {
             e.printStackTrace();
         }
 
-        gitStatusUpdate.setHttpClient(mockHttpClient);
         gitStatusUpdate.updateStatus();
 
         // Verify that the correct status code is returned
