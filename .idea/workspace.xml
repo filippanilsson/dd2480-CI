@@ -6,13 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="fbf694e7-41aa-4262-b202-6fbe07057da4" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DD2480-CI/src/main/java/skeleton/ContinuousIntegrationServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/DD2480-CI/src/main/java/skeleton/ContinuousIntegrationServer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DD2480-CI/src/main/java/skeleton/GitStatusUpdate.java" beforeDir="false" afterPath="$PROJECT_DIR$/DD2480-CI/src/main/java/skeleton/GitStatusUpdate.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DD2480-CI/src/test/java/GitStatusUpdateTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/DD2480-CI/src/test/java/GitStatusUpdateTest.java" afterDir="false" />
-    </list>
-    <list id="474cf5c5-79a3-414e-85f9-c13f8431a736" name="Changes by charlottajohnsson" comment="">
       <change beforePath="$PROJECT_DIR$/DD2480-CI/src/main/java/skeleton/GitStatusUpdate.java" beforeDir="false" afterPath="$PROJECT_DIR$/DD2480-CI/src/main/java/skeleton/GitStatusUpdate.java" afterDir="false" />
     </list>
+    <list id="474cf5c5-79a3-414e-85f9-c13f8431a736" name="Changes by charlottajohnsson" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -27,28 +23,6 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-  </component>
-  <component name="LineStatusTrackerManager">
-    <file path="$PROJECT_DIR$/DD2480-CI/src/main/java/skeleton/GitStatusUpdate.java">
-      <ranges>
-        <range start1="2" end1="3" start2="2" end2="3" changelist="474cf5c5-79a3-414e-85f9-c13f8431a736" />
-        <range start1="6" end1="10" start2="6" end2="8" changelist="fbf694e7-41aa-4262-b202-6fbe07057da4" />
-        <range start1="11" end1="11" start2="9" end2="13" changelist="fbf694e7-41aa-4262-b202-6fbe07057da4" />
-        <range start1="26" end1="27" start2="28" end2="30" changelist="fbf694e7-41aa-4262-b202-6fbe07057da4" />
-        <range start1="28" end1="30" start2="31" end2="33" changelist="fbf694e7-41aa-4262-b202-6fbe07057da4" />
-        <range start1="33" end1="34" start2="36" end2="37" changelist="fbf694e7-41aa-4262-b202-6fbe07057da4" />
-        <range start1="38" end1="38" start2="41" end2="42" changelist="fbf694e7-41aa-4262-b202-6fbe07057da4" />
-        <range start1="39" end1="42" start2="43" end2="46" changelist="fbf694e7-41aa-4262-b202-6fbe07057da4" />
-        <range start1="51" end1="52" start2="55" end2="56" changelist="474cf5c5-79a3-414e-85f9-c13f8431a736" />
-        <range start1="53" end1="53" start2="57" end2="59" changelist="fbf694e7-41aa-4262-b202-6fbe07057da4" />
-        <range start1="54" end1="59" start2="60" end2="60" changelist="fbf694e7-41aa-4262-b202-6fbe07057da4" />
-        <range start1="64" end1="67" start2="65" end2="70" changelist="fbf694e7-41aa-4262-b202-6fbe07057da4" />
-        <range start1="68" end1="75" start2="71" end2="82" changelist="fbf694e7-41aa-4262-b202-6fbe07057da4" />
-        <range start1="76" end1="77" start2="83" end2="84" changelist="fbf694e7-41aa-4262-b202-6fbe07057da4" />
-        <range start1="78" end1="78" start2="85" end2="87" changelist="fbf694e7-41aa-4262-b202-6fbe07057da4" />
-        <range start1="79" end1="79" start2="88" end2="89" changelist="fbf694e7-41aa-4262-b202-6fbe07057da4" />
-      </ranges>
-    </file>
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -186,7 +160,8 @@
       <workItem from="1707384389944" duration="7245000" />
       <workItem from="1707477559927" duration="10067000" />
       <workItem from="1707493467198" duration="1314000" />
-      <workItem from="1707566512222" duration="5271000" />
+      <workItem from="1707566512222" duration="5336000" />
+      <workItem from="1707575038006" duration="1232000" />
     </task>
     <servers />
   </component>
