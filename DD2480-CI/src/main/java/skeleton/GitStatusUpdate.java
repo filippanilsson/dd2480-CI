@@ -70,7 +70,7 @@ public class GitStatusUpdate {
             HttpPost httpPost = new HttpPost(gitUri + "repos/filippanilsson/dd2480-CI/statuses/" + sha);
             StringEntity params = new StringEntity(json.toString());
             httpPost.addHeader("accept", " application/vnd.github+json");
-            httpPost.addHeader("Authorization", "token " + githubToken);
+            httpPost.addHeader("Authorization", "token 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");
             httpPost.setEntity(params);
             httpClient.execute(httpPost);
         } catch (Exception e) {
