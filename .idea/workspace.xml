@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="fbf694e7-41aa-4262-b202-6fbe07057da4" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/DD2480-CI/src/test/java/GitStatusUpdateTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/DD2480-CI/src/test/java/skeleton/GitStatusUpdateTest.java" afterDir="false" />
+    </list>
+    <list id="474cf5c5-79a3-414e-85f9-c13f8431a736" name="Changes by charlottajohnsson" comment="">
+      <change beforePath="$PROJECT_DIR$/DD2480-CI/src/test/java/GitStatusUpdateTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/DD2480-CI/src/test/java/skeleton/GitStatusUpdateTest.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="LineStatusTrackerManager">
+    <file path="$PROJECT_DIR$/DD2480-CI/src/test/java/skeleton/GitStatusUpdateTest.java">
+      <ranges>
+        <range start1="0" end1="7" start2="0" end2="2" changelist="fbf694e7-41aa-4262-b202-6fbe07057da4" />
+        <range start1="9" end1="13" start2="4" end2="4" changelist="fbf694e7-41aa-4262-b202-6fbe07057da4" />
+        <range start1="14" end1="17" start2="5" end2="5" changelist="fbf694e7-41aa-4262-b202-6fbe07057da4" />
+        <range start1="43" end1="48" start2="31" end2="32" changelist="474cf5c5-79a3-414e-85f9-c13f8431a736" />
+      </ranges>
+    </file>
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 1
+}</component>
+  <component name="ProjectId" id="2c2tadSzjQ3SXcQls2IUiog1NbQ" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;Application.ContinuousIntegrationServer.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.GitStatusUpdateTest.assertThatInvalidShaThrowsException.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.GitStatusUpdateTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.GitStatusUpdateTest.testUpdateStatusSuccess.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.GitStatusUpdateTest2.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.GitStatusUpdateTest2.updateStatus_Success.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;issue/11&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/filippanilsson/School/dd2480-CI&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="skeleton" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Application.ContinuousIntegrationServer">
+    <configuration name="ContinuousIntegrationServer" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="skeleton.ContinuousIntegrationServer" />
+      <module name="DD2480-CI" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="skeleton.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="GitStatusUpdateTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="DD2480-CI" />
+      <option name="PACKAGE_NAME" value="skeleton" />
+      <option name="MAIN_CLASS_NAME" value="skeleton.GitStatusUpdateTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="GitStatusUpdateTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="DD2480-CI" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="GitStatusUpdateTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="GitStatusUpdateTest.testUpdateStatusSuccess" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="DD2480-CI" />
+      <option name="PACKAGE_NAME" value="skeleton" />
+      <option name="MAIN_CLASS_NAME" value="skeleton.GitStatusUpdateTest" />
+      <option name="METHOD_NAME" value="testUpdateStatusSuccess" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="GitStatusUpdateTest.updateStatus_Success" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="DD2480-CI" />
+      <option name="PACKAGE_NAME" value="skeleton" />
+      <option name="MAIN_CLASS_NAME" value="skeleton.GitStatusUpdateTest" />
+      <option name="METHOD_NAME" value="updateStatus_Success" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="JetRunConfigurationType">
+      <module name="dd2480-CI" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
+      <module name="dd2480-CI" />
+      <option name="filePath" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.ContinuousIntegrationServer" />
+        <item itemvalue="JUnit.GitStatusUpdateTest" />
+        <item itemvalue="Application.ContinuousIntegrationServer" />
+        <item itemvalue="JUnit.GitStatusUpdateTest.updateStatus_Success" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="jdk-21.0.2-openjdk-21.0.2-4caba194b151-322ed176" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="fbf694e7-41aa-4262-b202-6fbe07057da4" name="Changes" comment="" />
+      <created>1707321565874</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1707321565874</updated>
+      <workItem from="1707321566915" duration="488000" />
+      <workItem from="1707384389944" duration="7245000" />
+      <workItem from="1707477559927" duration="10067000" />
+      <workItem from="1707493467198" duration="1314000" />
+      <workItem from="1707566512222" duration="5336000" />
+      <workItem from="1707575038006" duration="5059000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/dd2480_CI$GitStatusUpdateTest.ic" NAME="GitStatusUpdateTest Coverage Results" MODIFIED="1707488553787" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+  </component>
+</project>
