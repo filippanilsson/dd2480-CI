@@ -5,10 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="fbf694e7-41aa-4262-b202-6fbe07057da4" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DD2480-CI/src/main/java/skeleton/GitStatusUpdate.java" beforeDir="false" afterPath="$PROJECT_DIR$/DD2480-CI/src/main/java/skeleton/GitStatusUpdate.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DD2480-CI/src/test/java/GitStatusUpdateTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/DD2480-CI/src/test/java/skeleton/GitStatusUpdateTest.java" afterDir="false" />
     </list>
-    <list id="474cf5c5-79a3-414e-85f9-c13f8431a736" name="Changes by charlottajohnsson" comment="" />
+    <list id="474cf5c5-79a3-414e-85f9-c13f8431a736" name="Changes by charlottajohnsson" comment="">
+      <change beforePath="$PROJECT_DIR$/DD2480-CI/src/test/java/GitStatusUpdateTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/DD2480-CI/src/test/java/skeleton/GitStatusUpdateTest.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -23,6 +24,16 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="LineStatusTrackerManager">
+    <file path="$PROJECT_DIR$/DD2480-CI/src/test/java/skeleton/GitStatusUpdateTest.java">
+      <ranges>
+        <range start1="0" end1="7" start2="0" end2="2" changelist="fbf694e7-41aa-4262-b202-6fbe07057da4" />
+        <range start1="9" end1="13" start2="4" end2="4" changelist="fbf694e7-41aa-4262-b202-6fbe07057da4" />
+        <range start1="14" end1="17" start2="5" end2="5" changelist="fbf694e7-41aa-4262-b202-6fbe07057da4" />
+        <range start1="43" end1="48" start2="31" end2="32" changelist="474cf5c5-79a3-414e-85f9-c13f8431a736" />
+      </ranges>
+    </file>
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -67,6 +78,11 @@
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
+  <component name="RecentsManager">
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="skeleton" />
+    </key>
+  </component>
   <component name="RunManager" selected="Application.ContinuousIntegrationServer">
     <configuration name="ContinuousIntegrationServer" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="skeleton.ContinuousIntegrationServer" />
@@ -83,8 +99,8 @@
     </configuration>
     <configuration name="GitStatusUpdateTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="DD2480-CI" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="GitStatusUpdateTest" />
+      <option name="PACKAGE_NAME" value="skeleton" />
+      <option name="MAIN_CLASS_NAME" value="skeleton.GitStatusUpdateTest" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -101,8 +117,8 @@
     </configuration>
     <configuration name="GitStatusUpdateTest.testUpdateStatusSuccess" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="DD2480-CI" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="GitStatusUpdateTest" />
+      <option name="PACKAGE_NAME" value="skeleton" />
+      <option name="MAIN_CLASS_NAME" value="skeleton.GitStatusUpdateTest" />
       <option name="METHOD_NAME" value="testUpdateStatusSuccess" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
@@ -111,8 +127,8 @@
     </configuration>
     <configuration name="GitStatusUpdateTest.updateStatus_Success" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="DD2480-CI" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="GitStatusUpdateTest" />
+      <option name="PACKAGE_NAME" value="skeleton" />
+      <option name="MAIN_CLASS_NAME" value="skeleton.GitStatusUpdateTest" />
       <option name="METHOD_NAME" value="updateStatus_Success" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
@@ -161,12 +177,23 @@
       <workItem from="1707477559927" duration="10067000" />
       <workItem from="1707493467198" duration="1314000" />
       <workItem from="1707566512222" duration="5336000" />
-      <workItem from="1707575038006" duration="1232000" />
+      <workItem from="1707575038006" duration="5059000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />

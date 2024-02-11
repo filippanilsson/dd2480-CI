@@ -83,13 +83,10 @@ public class GitStatusUpdate {
                 throw new Error("Status update could not be completed, response status "+ response.getStatusLine().getStatusCode());
             }
 
-
         } catch (Exception e) {
             e.printStackTrace();
         }
-
     }
-
 }
 
 
