@@ -7,9 +7,6 @@ import org.apache.http.client.HttpClient;
 import org.apache.http.impl.client.HttpClients;
 import org.json.JSONObject;
 
-import javax.servlet.http.HttpServletResponse;
-
-
 /**
  * Updates the commit status on the repository to one of four keywords - success, failure, error, and pending
  * by connecting to the GitHub API.
@@ -19,7 +16,6 @@ public class GitStatusUpdate {
     private final String gitUri;
     private final String sha;
     private final String githubToken;
-
 
     /**
      * Constructor for the GitStatusUpdate class
@@ -65,9 +61,9 @@ public class GitStatusUpdate {
     /**
      * Creates a HTTP POST request to update the commit status.
      * Throws an exception if the POST request fails.
-     * @param servletResponse The response that we send a message to if the API POST request succeeded
      */
-    public void updateStatus(HttpServletResponse servletResponse)  {
+    public void updateStatus()  {
+
         try {
             JSONObject json = statusSetter(new JSONObject());
 
@@ -83,12 +79,15 @@ public class GitStatusUpdate {
             httpPost.setEntity(entity);
             HttpResponse response = httpClient.execute(httpPost);
 
-            servletResponse.getWriter().println("Response status code: " + response.getStatusLine().getStatusCode() + "\n");
-            servletResponse.getWriter().println("Status updated \n");
+            if (response.getStatusLine().getStatusCode() != 201){
+                throw new Error("Status update could not be completed, response status "+ response.getStatusLine().getStatusCode());
+            }
+
 
         } catch (Exception e) {
             e.printStackTrace();
         }
+
     }
 
 }

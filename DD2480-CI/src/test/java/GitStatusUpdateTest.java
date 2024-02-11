@@ -1,3 +1,5 @@
+import org.apache.http.HttpResponse;
+import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.impl.client.CloseableHttpClient;
 import skeleton.GitStatusUpdate;
@@ -7,8 +9,11 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import javax.servlet.http.HttpServletResponse;
+
+import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
 /**
@@ -26,27 +31,19 @@ class GitStatusUpdateTest {
     }
 
     @Test
-    void assertThatPOSTRequestReturnsWithCorrectStatusCode() {
-        CloseableHttpClient mockHttpClient = Mockito.mock(CloseableHttpClient.class);
-        CloseableHttpResponse mockResponse = Mockito.mock(CloseableHttpResponse.class);
-        StatusLine mockStatusLine = Mockito.mock(StatusLine.class);
+    public void assertThatValidInputDoesNotThrowError(){
+        assertDoesNotThrow(() ->gitStatusUpdate.updateStatus());
+    }
 
-        // Mocking the HTTP client to return a mocked response
-        try {
-            when(mockHttpClient.execute(any())).thenReturn(mockResponse);
-            when(mockResponse.getStatusLine()).thenReturn(mockStatusLine);
-            when(mockStatusLine.getStatusCode()).thenReturn(201);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
 
-        gitStatusUpdate.updateStatus();
+    @Test
+    public void assertThatInvalidShaThrowsError(){
+        gitStatusUpdate = new GitStatusUpdate("123", buildStatus);
+        assertThrows(Error.class, () -> gitStatusUpdate.updateStatus());
+    }
 
-        // Verify that the correct status code is returned
-        try {
-            assertEquals(201, mockStatusLine.getStatusCode());
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+    @Test
+    public void assertInvalidGithubTokenThrowsError(){
+        //TODO
     }
 }

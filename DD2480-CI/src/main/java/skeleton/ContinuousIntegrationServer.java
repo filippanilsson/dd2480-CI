@@ -30,7 +30,7 @@ public class ContinuousIntegrationServer extends AbstractHandler
         // 1st clone your repository
         // 2nd compile the code
         GitStatusUpdate g = new GitStatusUpdate("5d3b4dc5b80c09cb27f13e1b6a846188dddc9cf0", BuildStatus.SUCCESS);
-        g.updateStatus(response);
+        g.updateStatus();
 
         response.getWriter().println("CI job done");
     }
