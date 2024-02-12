@@ -9,6 +9,10 @@ import org.json.JSONObject;
 import javax.servlet.http.HttpServletRequest;
 import java.io.File;
 
+/**
+ Executing the automated tests of the commit on the branch where the change has been made
+ and send notification
+ */
 public class TestAutomationHandler {
     String branch;
     String cloneURL;
@@ -19,7 +23,7 @@ public class TestAutomationHandler {
     /**
      * Creates and initializes a TestAutomationHandler object.
      *
-     * @param request the Github POST request
+     * @param request the Github request
      */
     public TestAutomationHandler(HttpServletRequest request) {
         RequestParser requestParser = new RequestParser(request);
