@@ -25,11 +25,11 @@ public class ContinuousIntegrationServer extends AbstractHandler
                        HttpServletResponse response)
             throws IOException, ServletException
     {
+        TestAutomationHandler testAutomationHandler = new TestAutomationHandler(request);
+        testAutomationHandler.runTests();
         response.setContentType("text/html;charset=utf-8");
         response.setStatus(HttpServletResponse.SC_OK);
         baseRequest.setHandled(true);
-        TestAutomationHandler testAutomationHandler = new TestAutomationHandler(request);
-        testAutomationHandler.runTests();
 
         if (target.equals("/")) {
             //Handle Webhook request
