@@ -8,6 +8,9 @@ import java.util.List;
 
 import org.apache.maven.shared.invoker.*;
 
+/**
+ * execute the build for maven repo, and retrieve the build output and result status.
+ */
 public class MavenInvokerBuilder {
     private static final List<String> PUBLISH_GOALS = Collections.singletonList("test");
     private final StringBuilder output = new StringBuilder();
@@ -20,6 +23,8 @@ public class MavenInvokerBuilder {
 
     /**
      * Instantiating the calling program in the class constructor
+     *
+     * @param localRepositoryDir The local repository directory for the Maven build.
      **/
     public MavenInvokerBuilder(File localRepositoryDir) {
         this.localRepositoryDir = localRepositoryDir;
@@ -38,6 +43,8 @@ public class MavenInvokerBuilder {
 
     /**
      * This method will be called repeatedly and a new generation will be initiated
+     *
+     * @throws MavenInvocationException If an error occurs during Maven build invocation.
      */
     public void build() throws MavenInvocationException {
         InvocationRequest request = new DefaultInvocationRequest();
@@ -70,9 +77,19 @@ public class MavenInvokerBuilder {
         });
     }
 
+    /**
+     * Retrieves the captured output of the Maven build.
+     *
+     * @return A string containing the Maven build output.
+     */
     public String getOutput() {
         return output.toString();
     }
+    /**
+     * Retrieves the result status of the Maven build.
+     *
+     * @return `true` if the build was successful, `false` otherwise.
+     */
     public Boolean getBuildResult() {
         return buildResult;
     }
