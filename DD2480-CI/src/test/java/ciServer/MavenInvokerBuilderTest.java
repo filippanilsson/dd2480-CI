@@ -1,13 +1,11 @@
-package mavenBuilderTest;
+package ciServer;
 
-import mavenBuilder.MavenInvokerBuilder;
 import org.apache.maven.shared.invoker.MavenInvocationException;
 import org.junit.Test;
 
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
-import static org.junit.Assert.assertThrows;
 import static org.junit.Assert.assertTrue;
 
 public class MavenInvokerBuilderTest {
