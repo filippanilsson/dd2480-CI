@@ -12,18 +12,26 @@ public class GitStatusUpdateTest {
     private GitStatusUpdate gitStatusUpdate;
     private BuildStatus buildStatus;
 
+    /**
+     * SETUP OF VALID MOCK POST REQUEST
+     */
     @BeforeEach
     void setUp() {
         buildStatus = BuildStatus.SUCCESS;
-        gitStatusUpdate = new GitStatusUpdate("5d3b4dc5b80c09cb27f13e1b6a846188dddc9cf0", buildStatus);
+        gitStatusUpdate = new GitStatusUpdate("840b1ffb9438a01fa5ec6f54b670b9222d2c8f0b", buildStatus);
     }
 
+    /*
+     *  VALID INPUT TEST
+     */
     @Test
     public void assertThatValidInputDoesNotThrowError(){
         assertDoesNotThrow(() -> gitStatusUpdate.updateStatus());
     }
 
-
+    /*
+     *  INVALID INPUT TEST
+     */
     @Test
     public void assertThatInvalidShaThrowsError(){
         gitStatusUpdate = new GitStatusUpdate("123", buildStatus);
