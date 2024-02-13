@@ -10,12 +10,15 @@ Furthermore, the CI server saves the build history, which persists even if the s
 The CI server is a Maven project and contains three top folders inside the DD2480-CI project folder:
 * **src**: contains the source code of the server.
   * **main**:
-    * **BuildStatus**: An enum containing the different types of commit statuses.
+    * **BuildHistoryManager**:Manages the build history of a continuous integration server
+    * **BuildStatus**: An enum containing the different types of commit statuses
     * **ContinuousIntegrationServer**: Houses the server, based on the skeleton found [here](https://github.com/KTH-DD2480/smallest-java-ci).
     * **GitRepo**: Clones the repo to the server
     * **GitStatusUpdate**: Sends a POST request to the GitHub REST API to update a commit’s status
     * **MavenInvokerBuilder**: Executes the build for Maven repository and retrieves the build output and result status
     * **RequestParser**: Checks if an HTTP request represents a GitHub push event and extracts information needed for build and notification.
+    * **TestAutomationHandler**: Executing the automated tests of the commit on the branch where the change has been made
+      and sends notification to GitHub
   * test: contains all tests for the created classes
 
 
@@ -38,7 +41,7 @@ Create a file called `.env` in the root of your project, then follow these [step
 ## Running the server ##
 1. Set up port forwarding and Webhook for your repo
 2. run `mvn test` in the root of your project to trigger the building process locally
-3. run `[insert command here]` to start the server
+3. run `java -jar ` to start the server
 4. Go to `localhost:8012` in your browser
 5. Push a commit to your repo
 
