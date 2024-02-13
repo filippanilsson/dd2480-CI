@@ -7,13 +7,14 @@ This is a continuous integration server written in Java, that can test Maven pro
 Furthermore, the CI server saves the build history, which persists even if the server is rebooted.
 
 ## Overview
-The CI server is a Maven project and contains three top folders:
+The CI server is a Maven project and contains three top folders inside the DD2480-CI project folder:
 * **src**: contains the source code of the server.
   * **main**:
     * **BuildStatus**: An enum containing the different types of commit statuses.
     * **ContinuousIntegrationServer**: Houses the server, based on the skeleton found [here](https://github.com/KTH-DD2480/smallest-java-ci).
     * **GitRepo**: Clones the repo to the server
     * **GitStatusUpdate**: Sends a POST request to the GitHub REST API to update a commit’s status
+    * **MavenInvokerBuilder**: Executes the build for Maven repository and retrieves the build output and result status
     * **RequestParser**: Checks if an HTTP request represents a GitHub push event and extracts information needed for build and notification.
   * test: contains all tests for the created classes
 
@@ -42,22 +43,41 @@ Create a file called `.env` in the root of your project, then follow these [step
 5. Push a commit to your repo
 
 ## Features
+
+### Compilation 
+...
+
 ### Cloning the repo
 Our server will automatically clone and checkout the correct commit in the repo using the method cloneRepo and checkoutCommit, implemented with Jgit in the GitRepo.java file. The cloned repo will be stored in a temporary folder which will be deleted once the CI server is finished.
 
+### Execution of automated tests
+...
+
 ### Update Github status
 Our server will report a build’s status (`success`, `error`, `failure` or `pending`) to GitHub by sending a `POST` request to the REST API. To view the status you can simply click on the commit.
+To accomplish this, we have generated a Personal Access Token which we placed in a .env file to authenticate to the REST API.
+We created an enum which contains all possible build states (`Buildstatus.java`), and when we send a `POST` request, we create a JSONObject which contains all necessary headers and payload to be able to set a status on the commit being pushed to the repo.
+We used Apache's Http dependencies to create `POST` requests, as well as Dotenv. 
+
+To unit test this feature, we have created two simple JUnit tests, one for invalid SHA input and one for valid SHA input.
 
 ### Viewing build History
 The CI server stores information about previous builds even if the server is rebooted, every entry contains:
-* build logs
-* sha id
+* SHA id
+* timestamp
 * build status
+* build logs
 
-It is available **[here](https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187_square.jpg)** .
+It is available **[here](https://grouper-valid-hugely.ngrok-free.app/buildhistory)**.
 
 ## Assessing our Team
-//TODO
+According to the checklist on p.52, we find our team to be in state "Performing". This is due to the fact that our team consistently delivers on our goals, achieving the first criteria of the list.
+Furthermore, when we discover problems we can easily address them within the group and change our workflow, meaning that we "continuously adapt to the changing context" 
+and "identifies and addresses problems without outside help". 
+Additionally, we have regular meetings where we discuss the current state of everyone's progress and also potential solutions to any problems anyone might have,
+this allows us to have an effective process which minimizes any mistakes, fulfilling the last two criteria of the checklist.
+
+In order to progress to the next state, Adjourned, we would have to hand over our responsibilities to another group or disband our group. 
 
 ### Contributions
 **Emil Hultcrantz**
