@@ -14,7 +14,7 @@ public class MavenInvokerBuilderTest {
      */
     @Test
     public void build() throws MavenInvocationException {
-        Path p = Paths.get("/Users/liangtianning/IdeaProjects/test");
+        Path p = Paths.get("/Users/annamartensson/Desktop/School/KTH/y4/VT/DD2480/ci");
         MavenInvokerBuilder mavenInvokerBuilder = new MavenInvokerBuilder(p.toFile());
         mavenInvokerBuilder.build();
         assertTrue(mavenInvokerBuilder.getBuildResult());

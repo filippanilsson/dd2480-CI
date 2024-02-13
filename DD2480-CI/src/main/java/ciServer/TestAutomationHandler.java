@@ -40,7 +40,7 @@ public class TestAutomationHandler {
         try {
             GitRepo gitRepo = new GitRepo(cloneURL, branch);
             gitRepo.checkoutCommit(this.sha);
-            MavenInvokerBuilder mavenInvokerBuilder = new MavenInvokerBuilder(new File("repo"));
+            MavenInvokerBuilder mavenInvokerBuilder = new MavenInvokerBuilder(new File("repo/DD2480-CI"));
             BuildStatus buildResultStatus = BuildStatus.SUCCESS;
             try {
                 mavenInvokerBuilder.build();
