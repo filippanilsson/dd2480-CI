@@ -41,7 +41,7 @@ Create a file called `.env` in the root of your project, then follow these [step
 ## Running the server ##
 1. Set up port forwarding and Webhook for your repo
 2. run `mvn test` in the root of your project to trigger the building process locally
-3. run `java -jar ` to start the server
+3. run `mvn clean compile exec:java` to start the server
 4. Go to `localhost:8012` in your browser
 5. Push a commit to your repo
 
