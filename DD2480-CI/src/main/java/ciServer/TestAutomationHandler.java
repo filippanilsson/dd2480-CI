@@ -4,6 +4,7 @@ import org.apache.maven.shared.invoker.MavenInvocationException;
 
 import javax.servlet.http.HttpServletRequest;
 import java.io.File;
+import java.time.LocalDateTime;
 
 /**
  Executing the automated tests of the commit on the branch where the change has been made
@@ -14,6 +15,7 @@ public class TestAutomationHandler {
     String cloneURL;
     String[] commitIDs;
     String sha;
+    BuildHistoryManager buildHistoryManager;
 
 
     /**
@@ -21,12 +23,13 @@ public class TestAutomationHandler {
      *
      * @param request the Github request
      */
-    public TestAutomationHandler(HttpServletRequest request) {
+    public TestAutomationHandler(HttpServletRequest request, BuildHistoryManager buildHistoryManager) {
         RequestParser requestParser = new RequestParser(request);
         this.branch = requestParser.branch;
         this.cloneURL = requestParser.cloneURL;
         this.commitIDs = requestParser.commitIDs;
         this.sha = this.commitIDs[0];
+        this.buildHistoryManager = buildHistoryManager;
     }
 
     /**
@@ -38,20 +41,23 @@ public class TestAutomationHandler {
             GitRepo gitRepo = new GitRepo(cloneURL, branch);
             gitRepo.checkoutCommit(this.sha);
             MavenInvokerBuilder mavenInvokerBuilder = new MavenInvokerBuilder(new File("repo"));
+            BuildStatus buildResultStatus = BuildStatus.SUCCESS;
             try {
                 mavenInvokerBuilder.build();
             } catch (MavenInvocationException e) {
                 testUpdateStatus(BuildStatus.ERROR);
+                buildHistoryManager.addBuildToHistory(this.sha, BuildStatus.ERROR, LocalDateTime.now(), mavenInvokerBuilder.getOutput());
                 throw new RuntimeException(e);
             }
-            if(mavenInvokerBuilder.getBuildResult()) {
-                testUpdateStatus(BuildStatus.SUCCESS);
-            } else {
-                testUpdateStatus(BuildStatus.FAILURE);
+            if(!mavenInvokerBuilder.getBuildResult()) {
+                buildResultStatus = BuildStatus.FAILURE;
             }
+            testUpdateStatus(buildResultStatus);
+            buildHistoryManager.addBuildToHistory(this.sha, buildResultStatus, LocalDateTime.now(), mavenInvokerBuilder.getOutput());
             gitRepo.close();
         } catch (Exception e) {
             testUpdateStatus(BuildStatus.ERROR);
+            buildHistoryManager.addBuildToHistory(this.sha, BuildStatus.ERROR, LocalDateTime.now(), "build error");
             throw new RuntimeException(e);
         }
     }
