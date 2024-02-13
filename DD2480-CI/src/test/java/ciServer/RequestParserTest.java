@@ -1,4 +1,4 @@
-package skeleton;
+package ciServer;
 
 import javax.servlet.http.HttpServletRequest;
 import static org.mockito.Mockito.*;

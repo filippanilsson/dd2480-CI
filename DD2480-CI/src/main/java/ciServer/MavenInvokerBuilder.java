@@ -1,8 +1,6 @@
-package mavenBuilder;
+package ciServer;
 
 import java.io.File;
-import java.io.InputStream;
-import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
