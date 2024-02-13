@@ -1,4 +1,4 @@
-package skeleton;
+package ciServer;
 
 import java.io.File;
 

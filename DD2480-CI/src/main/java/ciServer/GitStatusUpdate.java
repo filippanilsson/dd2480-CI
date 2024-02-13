@@ -1,4 +1,4 @@
-package skeleton;
+package ciServer;
 
 import io.github.cdimascio.dotenv.Dotenv;
 import org.apache.http.HttpResponse;
