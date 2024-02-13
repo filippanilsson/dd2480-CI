@@ -1,5 +1,6 @@
 package ciServer;
 
+import io.github.cdimascio.dotenv.Dotenv;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.entity.StringEntity;
@@ -15,7 +16,7 @@ public class GitStatusUpdate {
     private final BuildStatus buildStatus;
     private final String gitUri;
     private final String sha;
-    private final String githubToken;
+    private String githubToken;
 
     /**
      * Constructor for the GitStatusUpdate class
@@ -27,7 +28,7 @@ public class GitStatusUpdate {
         this.sha = sha;
         this.buildStatus = buildStatus;
         this.gitUri = "https://api.github.com/";
-        this.githubToken = System.getenv("ci_token"); // make sure this works
+        this.githubToken = Dotenv.configure().load().get("ci_token");
     }
 
     /**
