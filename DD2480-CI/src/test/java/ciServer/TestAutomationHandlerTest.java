@@ -14,6 +14,7 @@ import static org.mockito.Mockito.when;
 public class TestAutomationHandlerTest {
     HttpServletRequest request;
     TestAutomationHandler testAutomationHandler;
+    BuildHistoryManager buildHistoryManager = new BuildHistoryManager("buildHistoryTest.json");
 
     /**
      * SETUP OF VALID MOCK PUSH EVENT HTTP REQUEST
@@ -33,7 +34,7 @@ public class TestAutomationHandlerTest {
                 "{\"ref\": \"test_commits\", " +
                         "\"repository\":{\"clone_url\": \"invalidURL\"}, " +
                         "\"commits\": [{\"id\": \"094eb282f230eeb40b7f35ca6e68bf8496287108\"}, {\"id\": \"testID2\"}]}");
-        testAutomationHandler = new TestAutomationHandler(request);
+        testAutomationHandler = new TestAutomationHandler(request, buildHistoryManager);
         assertThrows(Error.class, ()->{testAutomationHandler.runTests();});
     }
 
@@ -46,7 +47,7 @@ public class TestAutomationHandlerTest {
                 "{\"ref\": \"issue/17\", " +
                         "\"repository\":{\"clone_url\": \"https://github.com/filippanilsson/dd2480-CI.git\"}, " +
                         "\"commits\": [{\"id\": \"127a44f543afaa3eb231138d6610cb08b75e1e0d\"}, {\"id\": \"testID2\"}]}");
-        testAutomationHandler = new TestAutomationHandler(request);
+        testAutomationHandler = new TestAutomationHandler(request, buildHistoryManager);
         assertDoesNotThrow(() -> testAutomationHandler.runTests());
     }
 
