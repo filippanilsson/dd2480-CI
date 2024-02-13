@@ -1,4 +1,4 @@
-package skeleton;
+package ciServer;
 
 public enum BuildStatus{
     SUCCESS("success"),

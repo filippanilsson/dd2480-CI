@@ -1,13 +1,9 @@
-package skeleton;
+package ciServer;
 
-import mavenBuilder.MavenInvokerBuilder;
-import org.apache.maven.shared.invoker.MavenInvocationException;
-import org.eclipse.jgit.api.errors.GitAPIException;
 import org.junit.Before;
 import org.junit.Test;
 
 import javax.servlet.http.HttpServletRequest;
-import java.nio.file.Paths;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertThrows;

@@ -1,10 +1,6 @@
-package skeleton;
+package ciServer;
 
-import mavenBuilder.MavenInvokerBuilder;
 import org.apache.maven.shared.invoker.MavenInvocationException;
-import org.eclipse.jgit.api.Git;
-import org.eclipse.jgit.api.errors.GitAPIException;
-import org.json.JSONObject;
 
 import javax.servlet.http.HttpServletRequest;
 import java.io.File;
