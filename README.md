@@ -1,5 +1,7 @@
 # dd2480-CI - Continuous Integration Server
 
+# Hello
+
 ## Description
 
 This is a continuous integration server written in Java, that can test Maven projects. It is triggered by pushes to the repository using Webhooks. The server can clone the repo, build the project and test it, as well as displaying commit statuses of the build on GitHub.
