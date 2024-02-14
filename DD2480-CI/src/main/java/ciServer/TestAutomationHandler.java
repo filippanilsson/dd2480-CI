@@ -37,8 +37,7 @@ public class TestAutomationHandler {
      */
     public void runTests() {
         testUpdateStatus(BuildStatus.PENDING);
-        try {
-            GitRepo gitRepo = new GitRepo(cloneURL, branch);
+        try (GitRepo gitRepo = new GitRepo(cloneURL, branch)) {
             gitRepo.checkoutCommit(this.sha);
             MavenInvokerBuilder mavenInvokerBuilder = new MavenInvokerBuilder(new File("repo/DD2480-CI"));
             BuildStatus buildResultStatus = BuildStatus.SUCCESS;
@@ -54,7 +53,6 @@ public class TestAutomationHandler {
             }
             testUpdateStatus(buildResultStatus);
             buildHistoryManager.addBuildToHistory(this.sha, buildResultStatus, LocalDateTime.now(), mavenInvokerBuilder.getOutput());
-            gitRepo.close();
         } catch (Exception e) {
             testUpdateStatus(BuildStatus.ERROR);
             buildHistoryManager.addBuildToHistory(this.sha, BuildStatus.ERROR, LocalDateTime.now(), "build error");
