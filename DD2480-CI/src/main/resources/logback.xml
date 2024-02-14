@@ -1,0 +1,11 @@
+<configuration>
+    <!-- Other configuration -->
+
+    <!-- JGit logging configuration -->
+    <logger name="org.eclipse.jgit" level="DEBUG"/>
+    
+    <!-- Root logger configuration -->
+    <root level="INFO">
+        <appender-ref ref="console"/>
+    </root>
+</configuration>
