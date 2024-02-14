@@ -19,7 +19,7 @@ The CI server is a Maven project and contains three top folders inside the DD248
     * **RequestParser**: Checks if an HTTP request represents a GitHub push event and extracts information needed for build and notification.
     * **TestAutomationHandler**: Executing the automated tests of the commit on the branch where the change has been made
       and sends notification to GitHub
-  * test: contains all tests for the created classes
+  * **test**: contains all tests for the created classes
 
 
 ## Build requirements
@@ -46,10 +46,11 @@ To use the PAT in your current session, set the PAT as an environment variable i
 (We assume that you have installed Maven and set the path variable)
 1. Set up port forwarding and Webhook for your repo
 2. Set up your personal access token (see section above)
-2. run `mvn test` in the root of your project to trigger the building and testing process locally
-3. run `mvn clean compile exec:java` to start the server
-4. Go to `localhost:8012` in your browser
-5. Push a commit to your repo
+3. `cd` into the root folder of the project (for this repo,`DD2480-CI`)
+4. run `mvn test` to trigger the building and testing process locally
+4. run `mvn clean compile exec:java` to start the server
+5. Go to `localhost:8012` in your browser
+6. Push a commit to your repo
 
 ## Features
 
