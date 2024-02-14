@@ -28,7 +28,7 @@ public class MavenInvokerBuilder {
         this.localRepositoryDir = localRepositoryDir;
         this.invoker = new DefaultInvoker();
         this.invoker.setLocalRepositoryDirectory(localRepositoryDir);
-        String mavenHomePath = System.getenv("MAVEN_HOME");
+        String mavenHomePath = System.getenv("M2_HOME");
 
         if (mavenHomePath != null) {
             File mavenHome = new File(mavenHomePath);
@@ -58,7 +58,7 @@ public class MavenInvokerBuilder {
                         result.getExecutionException());
             }
         }
-        buildResult = true;
+        buildResult = (result.getExitCode() == 0);
     }
 
     /**

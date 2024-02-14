@@ -28,7 +28,7 @@ public class GitStatusUpdate {
         this.sha = sha;
         this.buildStatus = buildStatus;
         this.gitUri = "https://api.github.com/";
-        this.githubToken = Dotenv.configure().load().get("ci_token");
+        this.githubToken = System.getenv("ci_token");
     }
 
     /**
@@ -89,5 +89,3 @@ public class GitStatusUpdate {
         }
     }
 }
-
-

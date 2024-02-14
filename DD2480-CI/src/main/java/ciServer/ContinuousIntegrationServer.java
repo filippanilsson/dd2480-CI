@@ -14,8 +14,7 @@ import org.eclipse.jetty.server.handler.AbstractHandler;
  */
 public class ContinuousIntegrationServer extends AbstractHandler
 {
-
-    private final BuildHistoryManager buildHistoryManager = new BuildHistoryManager("src/main/resources/buildHistory.json");
+    private final BuildHistoryManager buildHistoryManager = new BuildHistoryManager(System.getProperty("user.dir")+"/src/main/resources/buildHistory.json");
 
     public void handle(String target,
                        Request baseRequest,
@@ -27,10 +26,12 @@ public class ContinuousIntegrationServer extends AbstractHandler
         response.setStatus(HttpServletResponse.SC_OK);
         baseRequest.setHandled(true);
 
-        if (target.equals("/")) {
+        if (target.equals("/") && RequestParser.isPushEvent(request)) {
             //Handle Webhook request
+            System.out.println("Handling Webhook request...");
             TestAutomationHandler testAutomationHandler = new TestAutomationHandler(request, buildHistoryManager);
             testAutomationHandler.runTests();
+            System.out.println("...done");
         }
         else if (target.equals("/buildhistory")) {
             //Handle full build log request
