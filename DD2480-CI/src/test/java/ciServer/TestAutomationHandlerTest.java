@@ -51,9 +51,9 @@ public class TestAutomationHandlerTest {
     @Test
     public void assertThatValidInputDoesNotThrowError() {
         when(request.getParameter("payload")).thenReturn(
-                "{\"ref\": \"issue/17\", " +
+                "{\"ref\": \"main\", " +
                         "\"repository\":{\"clone_url\": \"https://github.com/filippanilsson/dd2480-CI.git\"}, " +
-                        "\"commits\": [{\"id\": \"127a44f543afaa3eb231138d6610cb08b75e1e0d\"}, {\"id\": \"testID2\"}]}");
+                        "\"commits\": [{\"id\": \"af3e0444fb8674aa2c963b2f3500cf4215e8398b\"}, {\"id\": \"testID2\"}]}");
         testAutomationHandler = new TestAutomationHandler(request,buildHistoryManager);
         assertDoesNotThrow(() -> testAutomationHandler.runTests());
     }
