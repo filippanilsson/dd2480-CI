@@ -24,23 +24,29 @@ The CI server is a Maven project and contains three top folders inside the DD248
 
 ## Build requirements
 * JDK 21
+* Maven 2
 * GitHub account
 * Personal Access Token (PAT)
 
 ### Build instructions
-To build the project, go into the root directory of the project and run `mvn test` in your terminal. This will compile the project and run all tests using JUnit.
+To build the project, go into the root directory of the project and run `mvn test` in your terminal. This will build the project and run all tests using JUnit.
 
 ### Webhook
 Our server exposes the port `8012`, and we recommend using `ngrok` to tunnel incoming requests. The server triggers the build using webhook requests from GitHub.
 
 ### Configuring a Personal Access Token 
-This server sends requests to the GitHub REST API, which requires a Personal Access Token.
+This server sends requests to the GitHub REST API, which requires a Personal Access Token. 
+You can generate one by doing these [steps](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens#creating-a-personal-access-token-classic).
+To use the PAT in your current session, set the PAT as an environment variable in your command line:
+* Mac OS X or Linux: `export ci_token=<YOUR TOKEN HERE>`
+* Windows: `set CI_TOKEN=<YOUR TOKEN HERE>` (Command Line) or `$Env:CI_TOKEN="<YOUR TOKEN HERE>"` (PowerShell)
 
-Create a file called `.env` in the root of your project, then follow these [steps](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens) to generate a personal access token (give it `repo` access). Then, put the line `ci_token=<YOUR TOKEN HERE>` into the .env file.
 
 ## Running the server ##
+(We assume that you have installed Maven and set the path variable)
 1. Set up port forwarding and Webhook for your repo
-2. run `mvn test` in the root of your project to trigger the building process locally
+2. Set up your personal access token (see section above)
+2. run `mvn test` in the root of your project to trigger the building and testing process locally
 3. run `mvn clean compile exec:java` to start the server
 4. Go to `localhost:8012` in your browser
 5. Push a commit to your repo
@@ -48,13 +54,20 @@ Create a file called `.env` in the root of your project, then follow these [step
 ## Features
 
 ### Compilation 
-...
+Our server automatically tests all corresponding repo tests using Maven Invoker Builder. 
+The compilation class generates build results and logs. This part was unit tested using JUnit, where the test tries to build a project locally,
+and returns the results of the build.
 
 ### Cloning the repo
-Our server will automatically clone and checkout the correct commit in the repo using the method cloneRepo and checkoutCommit, implemented with Jgit in the GitRepo.java file. The cloned repo will be stored in a temporary folder which will be deleted once the CI server is finished.
+Our server will automatically clone and checkout the correct commit in the repo using the method cloneRepo and checkoutCommit, implemented with Jgit in the GitRepo.java file. 
+The cloned repo will be stored in a temporary folder which will be deleted once the CI server is finished. 
+This feature has tests where it tries to clone this repo with valid and invalid data.
 
 ### Execution of automated tests
-...
+Our server will analyze the HTTP request received from the Webhook, extract the branch, clone URL, and commit IDs. 
+These details will be used to clone the git repository and add build history. 
+The compilation process will then test the repository and update the relevant notification and history log accordingly.
+To test this feature, we have an invalid and valid indata test that runs the process on a past commit in this repo.
 
 ### Update Github status
 Our server will report a build’s status (`success`, `error`, `failure` or `pending`) to GitHub by sending a `POST` request to the REST API. To view the status you can simply click on the commit.
@@ -71,7 +84,8 @@ The CI server stores information about previous builds even if the server is reb
 * build status
 * build logs
 
-It is available **[here](https://grouper-valid-hugely.ngrok-free.app/buildhistory)**.
+It is available **[here](https://composed-cheaply-liger.ngrok-free.app/buildhistory)**.
+
 
 ## Assessing our Team
 According to the checklist on p.52, we find our team to be in state "Performing". This is due to the fact that our team consistently delivers on our goals, achieving the first criteria of the list.
@@ -84,23 +98,31 @@ In order to progress to the next state, Adjourned, we would have to hand over ou
 
 ### Contributions
 **Emil Hultcrantz**
-* 
+* Implemented GitRepo and associated tests
+* Code reviewing
+* Bugfixing
 
 **Charlotta Johnson** (pair programmed with Filippa)
 * Implemented commit status update and wrote tests for it
 * Wrote draft of README
 * Code reviewing
 * Bugfixing
+* Generated Javadoc 
 
 **Tianning Liang**
-*
+* Implemented MavenInvokerBuilder and TestAutomationHandler, and associated tests
+* Code reviewing
+* Bugfixing
 
 **Anna Mårtensson**
-*
-
+* Implemented RequestParser and BuildHistoryManager
+* Bugfixing the final product
+* Merging the final product into `main`
+* Code reviewing
+* Bugfixing
 
 **Filippa Nilsson** (pair-programmed with Charlotta)
 * Implemented commit status update and wrote tests for it
-* Wrote draft of README
+* Wrote draft of README + finishing touches
 * Code reviewing
 * Bugfixing
